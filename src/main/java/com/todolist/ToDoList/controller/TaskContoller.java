@@ -16,18 +16,20 @@ public class TaskContoller {
     private TaskService taskService;
 
     @GetMapping("/")
-    public String iniciar(ModelMap model){
+    public String start(ModelMap model){
         List<Task> pendingTasks = taskService.getPendingTasks();
         List<Task> overdueTasks = taskService.getOverdueTasks();
         List<Task> completedTasks = taskService.getCompletedTasks();
 
-        // Share the infomaton with the view, insert the listsin the model under the keys "pendingTasks", "ovedueTasks"
+        // Share the infomaton with the view, insert the listsin the model under the keys "pendingTasks", "overdueTasks"
         // and "completedTasks". Then the view can use the lists.
         model.put("pendingTasks", pendingTasks);
-        model.put("ovedueTasks", overdueTasks);
+        model.put("overdueTasks", overdueTasks);
         model.put("completedTasks",completedTasks);
 
         return "index"; // Show index.jsp
     }
+
+
 
 }
