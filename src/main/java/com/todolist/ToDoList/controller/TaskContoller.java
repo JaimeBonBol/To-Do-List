@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -30,6 +32,24 @@ public class TaskContoller {
         return "index"; // Show index.jsp
     }
 
+    @GetMapping("/add")
+    public String showNewTaskView(){
+        return "add"; // Show add.jsp
+    }
 
+    /**
+     * With Spring param @ModelAttribute("taskForm") Task task MVC will attempt to automatically fill the Task
+     * object with data coming from the form.
+     * @param task
+     * @return
+     */
+    @PostMapping("/add")
+    public String save(@ModelAttribute("taskForm") Task task){
+        // Task object have the information from the form.
+        taskService.saveTask(task);
+
+        return "redirect:/";    // Redirect to path "/"
+
+    }
 
 }
