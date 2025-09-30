@@ -8,6 +8,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -44,12 +45,32 @@ public class TaskContoller {
      * @return
      */
     @PostMapping("/add")
-    public String save(@ModelAttribute("taskForm") Task task){
+    public String saveTask(@ModelAttribute("taskForm") Task task){
         // Task object have the information from the form.
         taskService.saveTask(task);
 
         return "redirect:/";    // Redirect to path "/"
 
+    }
+
+    /**
+     * Method to mark a task as completed by the id of the @RequestParam
+     */
+    @GetMapping("/complete")
+    public String completeTask(@RequestParam Long id){
+        taskService.completeTask(id);
+
+        return "redirect:/";    // Redirect to path "/"
+    }
+
+    /**
+     * Method to delete a task by the id of @RequestParam
+     */
+    @GetMapping("/delete")
+    public String deleteTask(@RequestParam Long id){
+        taskService.deleteTask(id);
+
+        return "redirect:/";    // Redirect to path "/"
     }
 
 }

@@ -26,21 +26,21 @@
                 <td>${task.dueDate}</td>
                 <td>
                     <c:set var="urlCompleteTask">
-                        <c:url value="${urlComplete}">
+                        <c:url value="${application.contextPath}/complete">
                             <c:param name="id" value="${task.id}"/>
                         </c:url>
                     </c:set>
                     <a href="${urlCompleteTask}" class="btn btn-success btn-sm">Complete</a>
 
                     <c:set var="urlEditTask">
-                        <c:url value="${urlEdit}">
+                        <c:url value="${application.contextPath}/edit">
                             <c:param name="id" value="${task.id}"/>
                         </c:url>
                     </c:set>
                     <a href="${urlEditTask}" class="btn btn-warning btn-sm">Edit</a>
 
                     <c:set var="urlDeleteTask">
-                        <c:url value="${urlDelete}">
+                        <c:url value="${application.contextPath}/delete">
                             <c:param name="id" value="${task.id}"/>
                         </c:url>
                     </c:set>
@@ -74,21 +74,21 @@
                 <td>${overdueTask.dueDate}</td>
                 <td>
                     <c:set var="urlCompleteOverdueTask">
-                        <c:url value="${urlComplete}">
+                        <c:url value="${application.contextPath}/complete">
                             <c:param name="id" value="${overdueTask.id}"/>
                         </c:url>
                     </c:set>
                     <a href="${urlCompleteOverdueTask}" class="btn btn-success btn-sm">Complete</a>
 
                     <c:set var="urlEditOverdueTask">
-                        <c:url value="${urlEdit}">
+                        <c:url value="${application.contextPath}/edit">
                             <c:param name="id" value="${overdueTask.id}"/>
                         </c:url>
                     </c:set>
                     <a href="${urlEditOverdueTask}" class="btn btn-warning btn-sm">Edit</a>
 
                     <c:set var="urlDeleteOverdueTask">
-                        <c:url value="${urlDelete}">
+                        <c:url value="${application.contextPath}/delete">
                             <c:param name="id" value="${overdueTask.id}"/>
                         </c:url>
                     </c:set>
@@ -123,7 +123,7 @@
                 <td>
                     <!-- guarda la URL completa con el parámetro en la variable urlDeleteCompletedTask. -->
                     <c:set var="urlDeleteCompletedTask">
-                        <c:url value="${urlDelete}">
+                        <c:url value="${application.contextPath}/delete">
                             <!-- agrega un parámetro id=... con el id de la tarea actual. -->
                             <c:param name="id" value="${completedTask.id}"/>
                         </c:url>
