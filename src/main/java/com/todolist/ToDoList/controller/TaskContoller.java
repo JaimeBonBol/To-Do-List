@@ -24,7 +24,7 @@ public class TaskContoller {
         List<Task> overdueTasks = taskService.getOverdueTasks();
         List<Task> completedTasks = taskService.getCompletedTasks();
 
-        // Share the infomaton with the view, insert the listsin the model under the keys "pendingTasks", "overdueTasks"
+        // Share the infomaton with the view, insert the lists in the model under the keys "pendingTasks", "overdueTasks"
         // and "completedTasks". Then the view can use the lists.
         model.put("pendingTasks", pendingTasks);
         model.put("overdueTasks", overdueTasks);
@@ -52,6 +52,35 @@ public class TaskContoller {
         return "redirect:/";    // Redirect to path "/"
 
     }
+
+
+    @GetMapping("/edit")
+    public String showEditTaskView(@RequestParam Long id, ModelMap modelo){
+        // Search the task by the id of the route that gives every edit button.
+        Task task = taskService.getTaskById(id);
+
+        // Share the model with the view. Insert the task in the model under the key task so the view can use them.
+        modelo.put("task", task);
+
+        // Show edit.jsp
+        return "edit";
+
+    }
+
+    /**
+     * Method to edit a task, receives the attribute from the taskForm model to work with.
+     * @param task
+     * @return
+     */
+    @PostMapping("/edit")
+    public String editTask(@ModelAttribute("taskForm") Task task){
+        // Task object have the information from the form. Now saveTask edit because id is not null.
+        taskService.saveTask(task);
+
+        return "redirect:/";    // Redirect to path "/"
+
+    }
+
 
     /**
      * Method to mark a task as completed by the id of the @RequestParam
