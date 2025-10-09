@@ -11,6 +11,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="${urlAdd}">New Task</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="${urlCalendar}"><i class="bi bi-calendar-event me-1"></i> Calendar</a>
+                    </li>
                 </ul>
             </div>
         </div>

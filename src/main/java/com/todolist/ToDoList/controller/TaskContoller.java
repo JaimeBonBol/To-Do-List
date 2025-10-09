@@ -102,4 +102,26 @@ public class TaskContoller {
         return "redirect:/";    // Redirect to path "/"
     }
 
+    /**
+     * Method to show calendar
+     * @param model
+     * @return
+     */
+    @GetMapping("/calendar")
+    public String showCalendarView(ModelMap model){
+
+        List<Task> pendingTasks = taskService.getPendingTasks();
+        List<Task> overdueTasks = taskService.getOverdueTasks();
+        List<Task> completedTasks = taskService.getCompletedTasks();
+
+        // Share the infomaton with the view, insert the lists in the model under the keys "pendingTasks", "overdueTasks"
+        // and "completedTasks". Then the view can use the lists.
+        model.put("pendingTasks", pendingTasks);
+        model.put("overdueTasks", overdueTasks);
+        model.put("completedTasks",completedTasks);
+
+        return "calendar";  // Show calendar.jsp
+
+    }
+
 }

@@ -21,6 +21,10 @@
     <c:url value="${application.contextPath}/complete"/>
 </c:set>
 
+<c:set var="urlCalendar">
+    <c:url value="${application.contextPath}/calendar"/>
+</c:set>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

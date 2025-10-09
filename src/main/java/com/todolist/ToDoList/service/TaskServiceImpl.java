@@ -41,6 +41,13 @@ public class TaskServiceImpl implements TaskService{
      */
     @Override
     public Task saveTask(Task task) {
+
+        LocalDate today = LocalDate.now();
+        LocalDate tomorrow = today.plusDays(1);
+
+        if (task.getDueDate() == null){
+            task.setDueDate(tomorrow);
+        }
         return taskRepository.save(task);
     }
 
