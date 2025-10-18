@@ -11,7 +11,6 @@ It allows users to efficiently manage tasks through a clean, interactive interfa
 - Responsive design with Bootstrap
 - FullCalendar integration for calendar view
 - UTF-8 support (write accents and special characters)
-- User session handling (login/logout)
 
 ## 🛠️ Technologies Used
 - Java 21
@@ -19,7 +18,7 @@ It allows users to efficiently manage tasks through a clean, interactive interfa
 - JSP / JSTL
 - Bootstrap 5
 - FullCalendar.js
-- MySQL / H2 (configurable)
+- MySQL
 - Maven (dependency management)
 
 ## 📂 Project Structure
