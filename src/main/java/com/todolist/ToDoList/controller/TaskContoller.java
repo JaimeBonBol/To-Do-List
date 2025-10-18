@@ -18,6 +18,7 @@ public class TaskContoller {
     @Autowired
     private TaskService taskService;
 
+    //ModelMap es un objeto que Spring MVC te da automáticamente para enviar datos desde el controlador a la vista (JSP) mediante clave valor.
     @GetMapping("/")
     public String start(ModelMap model){
         List<Task> pendingTasks = taskService.getPendingTasks();
@@ -41,6 +42,9 @@ public class TaskContoller {
     /**
      * With Spring param @ModelAttribute("taskForm") Task task MVC will attempt to automatically fill the Task
      * object with data coming from the form.
+     * @ModelAttribute le dice a Spring MVC:
+     * "Crea un objeto de tipo Task y rellénalo con los datos que vienen del formulario."
+     * "taskForm" es el nombre del atributo del formulario, que debe coincidir con el modelAttribute en tu JSP:
      * @param task
      * @return
      */
@@ -54,6 +58,8 @@ public class TaskContoller {
     }
 
 
+    // @RequestParam Long id significa que espera un parámetro de URL llamado id
+    //ModelMap es un objeto que Spring MVC te da automáticamente para enviar datos desde el controlador a la vista (JSP) mediante clave valor.
     @GetMapping("/edit")
     public String showEditTaskView(@RequestParam Long id, ModelMap modelo){
         // Search the task by the id of the route that gives every edit button.
