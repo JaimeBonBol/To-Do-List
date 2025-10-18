@@ -44,7 +44,7 @@ public class TaskContoller {
      * object with data coming from the form.
      * @ModelAttribute le dice a Spring MVC:
      * "Crea un objeto de tipo Task y rellénalo con los datos que vienen del formulario."
-     * "taskForm" es el nombre del atributo del formulario, que debe coincidir con el modelAttribute en tu JSP:
+     * "taskForm" es el nombre del atributo del formulario, que debe coincidir con el modelAttribute en tu JSP.
      * @param task
      * @return
      */
